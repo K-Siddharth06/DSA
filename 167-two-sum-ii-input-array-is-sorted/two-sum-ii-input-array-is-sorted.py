@@ -8,8 +8,7 @@ class Solution(object):
             if cur_sum==target:
                 return [i+1,j+1]
             elif cur_sum<target:
-                i=i+1
+                i+=1
             else:
-                j=j-1
+                j-=1
         return []
-        
