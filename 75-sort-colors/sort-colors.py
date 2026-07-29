@@ -5,7 +5,6 @@ class Solution(object):
         high = len(nums) - 1
 
         while mid <= high:
-
             if nums[mid] == 0:
                 nums[low], nums[mid] = nums[mid], nums[low]
                 low += 1
@@ -14,6 +13,6 @@ class Solution(object):
             elif nums[mid] == 1:
                 mid += 1
 
-            else:  
+            else:
                 nums[mid], nums[high] = nums[high], nums[mid]
                 high -= 1
