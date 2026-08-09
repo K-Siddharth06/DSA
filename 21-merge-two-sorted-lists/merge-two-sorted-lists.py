@@ -1,7 +1,7 @@
 class Solution(object):
     def mergeTwoLists(self, list1, list2):
-        dummy = ListNode(0)
-        curr = dummy
+        temp = ListNode(0)
+        curr = temp
         while list1 and list2:
             if list1.val <= list2.val:
                 curr.next = list1
@@ -14,4 +14,4 @@ class Solution(object):
             curr.next = list1
         else:
             curr.next = list2
-        return dummy.next
+        return temp.next
