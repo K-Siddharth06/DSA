@@ -1,21 +1,21 @@
 class Solution(object):
     def isPalindrome(self, head):
-        slow = head
-        fast = head
+        slow=head
+        fast=head
         while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
-        prev = None
+            slow=slow.next
+            fast=fast.next.next
+        prev=None
         while slow:
-            next_node = slow.next
-            slow.next = prev
-            prev = slow
-            slow = next_node
-        left = head
-        right = prev
+            next_node=slow.next
+            slow.next=prev
+            prev=slow
+            slow=next_node
+        left=head
+        right=prev
         while right:
-            if left.val != right.val:
+            if left.val!=right.val:
                 return False
-            left = left.next
-            right = right.next
+            left=left.next
+            right=right.next
         return True
