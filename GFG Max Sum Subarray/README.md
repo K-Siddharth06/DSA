@@ -6,4 +6,4 @@
 
 ## Solution
 This folder contains my accepted python solution.
-https://github.com/K-Siddharth06/DSA/blob/main/GFG-Minimum%20Sum%20Subarray/Minimum%20Sum%20Subarray%20solution.py
+https://github.com/K-Siddharth06/DSA/blob/main/GFG%20Max%20Sum%20Subarray/Max%20Sum%20Subarray%20of%20size%20K.py
