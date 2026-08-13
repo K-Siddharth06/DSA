@@ -5,4 +5,4 @@
 **Problem Link:** https://leetcode.com/problems/remove-linked-list-elements/
 ## Solution
 This folder contains my accepted python solution.
-https://github.com/K-Siddharth06/DSA/blob/main/GFG%20Max%20Sum%20Subarray/Max%20Sum%20Subarray%20of%20size%20K.py
+https://github.com/K-Siddharth06/DSA/blob/main/203.%20Remove%20Linked%20List%20Elements%20/Remove%20Linked%20List%20Elements.py
