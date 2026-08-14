@@ -1,6 +1,6 @@
 # LEETCODE 2.ADD TWO NUMBERS
 
-**Platform:** GeeksforGeeks
+**Platform:** Leetcode
 
 **Problem Link:**https://leetcode.com/problems/add-two-numbers/description/
 
