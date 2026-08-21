@@ -3,9 +3,9 @@ class Solution(object):
         i=0
         seen={}
         while i<len(nums):
-            needed=target-nums[i]
-            if needed in seen:
-                return [seen[needed],i]
+            need=target-nums[i]
+            if need in seen:
+              return [seen[need],i]
             seen[nums[i]]=i
             i=i+1
         return []
