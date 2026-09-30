@@ -5,7 +5,7 @@ class Solution:
         slow = temp
         fast = temp
 
-        for _ in range(n):
+        for i in range(n):
             fast = fast.next
 
         while fast.next:
