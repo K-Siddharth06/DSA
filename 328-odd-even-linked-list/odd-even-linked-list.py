@@ -5,7 +5,7 @@
 #         self.next = next
 class Solution(object):
     def oddEvenList(self, head):
-        while not head or not head.next:
+        while head==None or head.next==None:
             return head
         odd=head
         even=odd.next
