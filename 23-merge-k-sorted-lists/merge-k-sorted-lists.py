@@ -31,5 +31,3 @@ class Solution(object):
         else:
             cur.next=l2
         return temp.next
-        
-        
