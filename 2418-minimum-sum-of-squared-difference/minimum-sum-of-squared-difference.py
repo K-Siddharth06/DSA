@@ -1,27 +1,18 @@
 class Solution(object):
     def minSumSquareDiff(self, nums1, nums2, k1, k2):
-        diffs = [abs(a - b) for a, b in zip(nums1, nums2)]
         k = k1 + k2
+        freq = [0] * 100001
 
-        if sum(diffs) <= k:
-            return 0
+        for a, b in zip(nums1, nums2):
+            freq[abs(a - b)] += 1
 
-        left, right = 0, max(diffs)
+        for d in xrange(100000, 0, -1):
+            if k <= 0:
+                break
 
-        while left < right:
-            mid = (left + right) // 2
-            need = sum(max(0, d - mid) for d in diffs)
+            take = min(k, freq[d])
+            freq[d] -= take
+            freq[d - 1] += take
+            k -= take
 
-            if need <= k:
-                right = mid
-            else:
-                left = mid + 1
-
-        level = left
-        need = sum(max(0, d - level) for d in diffs)
-        remaining = k - need
-
-        ans = sum(min(d, level) ** 2 for d in diffs)
-        ans -= remaining * (2 * level - 1)
-
-        return ans
+        return sum(d * d * freq[d] for d in xrange(100001))
