@@ -1,10 +1,8 @@
 class Solution(object):
     def getDecimalValue(self, head):
-        result = 0
-        curr = head
-
-        while curr:
-            result = result * 2 + curr.val
-            curr = curr.next
-
+        result=0
+        cur=head
+        while cur:
+            result=result*2+cur.val
+            cur=cur.next
         return result
