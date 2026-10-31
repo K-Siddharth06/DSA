@@ -1,8 +1,11 @@
-class Solution(object):
+
+class Solution:
     def getDecimalValue(self, head):
-        result=0
-        cur=head
-        while cur:
-            result=result*2+cur.val
-            cur=cur.next
+        result = 0
+        current = head
+
+        while current:
+            result = result * 2 + current.val
+            current = current.next
+
         return result
