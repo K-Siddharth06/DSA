@@ -1,17 +1,17 @@
 class Solution(object):
     def mergeTwoLists(self, list1, list2):
-        temp = ListNode(0)
-        curr = temp
+        temp=ListNode(0)
+        cur=temp
         while list1 and list2:
-            if list1.val <= list2.val:
-                curr.next = list1
-                list1 = list1.next
+            if list1.val<=list2.val:
+                cur.next=list1
+                list1=list1.next
             else:
-                curr.next = list2
-                list2 = list2.next
-            curr = curr.next
+                cur.next=list2
+                list2=list2.next
+            cur=cur.next
         if list1:
-            curr.next = list1
+            cur.next=list1
         else:
-            curr.next = list2
+            cur.next=list2
         return temp.next
