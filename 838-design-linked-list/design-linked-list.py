@@ -1,82 +1,73 @@
 class Node:
-    def __init__(self,val=0):
-        self.val=val
-        self.next=None
+    def __init__(self,data):
+        self.data = data
+        self.next = None
 
-class MyLinkedList(object):
+
+class MyLinkedList:
 
     def __init__(self):
-        self.temp=Node()
-        self.size=0
+        self.head = None
         
 
-    def get(self, index):
-        """
-        :type index: int
-        :rtype: int
-        """
-        if index<0 or index>=self.size:
-            return -1
-        curr=self.temp
-        for i in range(index+1):
-            curr=curr.next
-        return curr.val
+    def get(self, index: int) -> int:
+        current =  self.head
+        current_index = 0
+        while current and current_index<index:
+            current = current.next
+            current_index+=1
+        return current.data if current else -1
         
 
-    def addAtHead(self, val):
-        """
-        :type val: int
-        :rtype: None
-        """
-        new_node=Node(val)
-        new_node.next=self.temp.next
-        self.temp.next=new_node
-        self.size+=1
+    def addAtHead(self, val: int) -> None:
+        newNode = Node(val)
+        newNode.next = self.head
+        self.head = newNode
+        
+    def addAtTail(self, val: int) -> None:
+        current = self.head
+        newNode = Node(val)
+        if self.head is None:
+            self.head = newNode
+            return 
+        while current.next:
+            current = current.next
+        current.next = newNode        
 
-    def addAtTail(self, val):
-        """
-        :type val: int
-        :rtype: None
-        """
-        curr=self.temp
-        while curr.next:
-            curr=curr.next
-        curr.next=Node(val)
-        self.size+=1
+    def addAtIndex(self, index: int, val: int) -> None:
+        if index==0:
+            self.addAtHead(val)
+            return
+        current = self.head
+        current_index = 0
+        while current and current_index<index-1:
+            current = current.next
+            current_index+=1
+
+        if current is None:
+            return 
+        newNode = Node(val)
+        newNode.next = current.next
+        current.next = newNode
         
 
-    def addAtIndex(self, index, val):
-        """
-        :type index: int
-        :type val: int
-        :rtype: None
-        """
-        if index>self.size:
-            return None
-        if index<0:
-            index=0
+    def deleteAtIndex(self, index: int) -> None:
+        if self.head is None:
+            return
+        if index==0:
+            
+            self.head = self.head.next
+            return 
+        current = self.head
+        current_index = 0
+        while current and current_index<index-1:
+            current = current.next
+            current_index +=1
+        if current is None or current.next is None:
+            return 
         
-        curr=self.temp
-        for i in range(index):
-            curr=curr.next
-        new_node=Node(val)
-        new_node.next=curr.next
-        curr.next=new_node
-        self.size+=1
-        
+        current.next = current.next.next
 
-    def deleteAtIndex(self, index):
-        """
-        :type index: int
-        :rtype: None
-        """
-        if index<0 or index>=self.size:
-            return None
-        curr=self.temp
-        for i in range(index):
-            curr=curr.next
-        curr.next=curr.next.next
-        self.size-=1
         
 
 
