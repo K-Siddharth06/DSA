@@ -6,12 +6,13 @@
 class Solution:
     def reorderList(self, head: ListNode | None) -> None:
         if not head and not head.next:
-            return 
+            return head
         slow=head
         fast=head
         while fast and fast.next:
             slow=slow.next
             fast=fast.next.next
+        
         second=slow.next
         slow.next=None
         prev=None
@@ -27,6 +28,6 @@ class Solution:
             next_second=second.next
             first.next=second
             second.next=next_first
-
+    
             first=next_first
             second=next_second
