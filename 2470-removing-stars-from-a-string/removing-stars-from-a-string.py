@@ -4,7 +4,8 @@ class Solution(object):
 
         for ch in s:
             if ch == '*':
-                stack.pop()
+                if stack:
+                    stack.pop()
             else:
                 stack.append(ch)
 
