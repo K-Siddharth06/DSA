@@ -6,40 +6,37 @@ class Solution(object):
         for i in xrange(1, n):
             children[parent[i]].append(i)
 
-        new_parent = parent[:]
         last = [-1] * 26
+        prev = [-1] * n
+        order = []
+        stack = [0]
 
-        def find_parents(node):
-            c = ord(s[node]) - ord('a')
-            old = last[c]
+        while stack:
+            node = stack.pop()
 
-            if old != -1:
-                new_parent[node] = old
+            if node < 0:
+                node = ~node
+                c = ord(s[node]) - 97
+                last[c] = prev[node]
+                continue
+
+            c = ord(s[node]) - 97
+            prev[node] = last[c]
+
+            if last[c] != -1:
+                parent[node] = last[c]
 
             last[c] = node
+            order.append(node)
 
-            for child in children[node]:
-                find_parents(child)
+            stack.append(~node)
 
-            last[c] = old
+            for child in reversed(children[node]):
+                stack.append(child)
 
-        find_parents(0)
+        ans = [1] * n
 
-        new_children = [[] for _ in xrange(n)]
+        for node in reversed(order[1:]):
+            ans[parent[node]] += ans[node]
 
-        for i in xrange(1, n):
-            new_children[new_parent[i]].append(i)
-
-        ans = [0] * n
-
-        def dfs(node):
-            size = 1
-
-            for child in new_children[node]:
-                size += dfs(child)
-
-            ans[node] = size
-            return size
-
-        dfs(0)
         return ans
