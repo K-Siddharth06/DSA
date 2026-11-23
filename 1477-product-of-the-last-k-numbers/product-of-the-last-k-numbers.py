@@ -12,4 +12,4 @@ class ProductOfNumbers(object):
     def getProduct(self, k):
         if k >= len(self.prefix):
             return 0
-        return self.prefix[-1] // self.prefix[-k-1]
+        return self.prefix[-1] // self.prefix[-k - 1]
